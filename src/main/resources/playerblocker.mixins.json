@@ -12,6 +12,7 @@
     "ClientSuggestionProviderMixin",
     "EntityRenderDispatcherMixin",
     "EntityRenderDispatcherSubmitMixin",
+    "EntityHitboxDebugRendererMixin",
     "JadeRayTraceMixin",
     "ParticleMixin",
     "SidebarMixin",

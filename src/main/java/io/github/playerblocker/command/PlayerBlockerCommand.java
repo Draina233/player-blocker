@@ -118,7 +118,7 @@ public final class PlayerBlockerCommand {
 
         source.sendFeedback(Component.literal("已屏蔽 " + realName + "  " + scopeLabel(scope))
                 .withStyle(ChatFormatting.GREEN));
-        source.sendFeedback(Component.literal("模型/名牌/Tab/聊天/系统消息/音效/补全 默认开启；侧边栏默认关闭")
+        source.sendFeedback(Component.literal("模型/名牌/碰撞箱/Tab/聊天/系统消息/音效/补全 默认开启；侧边栏默认关闭")
                 .withStyle(ChatFormatting.GRAY));
         return 1;
     }

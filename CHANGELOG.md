@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.3
+
+### Added
+
+- **Hitbox channel.** With F3+B on, a blocked player's white hitbox outline used to keep walking
+  around after the body was gone, which gave their exact position away. `EntityHitboxDebugRenderer`
+  now skips that one entity. Enabled by default, and it also answers to the `model` switch, so
+  existing entries pick it up without any action.
+
 ## 0.2.2 — first public release
 
 First version published to Modrinth.

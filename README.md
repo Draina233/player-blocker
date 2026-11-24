@@ -19,6 +19,7 @@ Every channel is independent and can be toggled per player.
 | Model | on | Body, armour, held items, cape |
 | Name tag | on | Floating name above the head |
 | Outline | on | Glowing effect and drop shadow |
+| Hitbox | on | The F3+B debug hitbox outline — otherwise a white box keeps walking around |
 | Tab list | on | Vanilla player list and BetterTab (both read the same source) |
 | Chat | on | Lines authored by that player |
 | System messages | on | Join/leave, whispers, advancement broadcasts, server text naming them |

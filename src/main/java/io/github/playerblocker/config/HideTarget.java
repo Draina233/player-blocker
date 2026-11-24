@@ -38,7 +38,18 @@ public enum HideTarget {
      */
     SYSTEM(true),
     /** Sidebar scoreboard / /list output. Text heuristic, highest false-positive risk. */
-    SIDEBAR(false);
+    SIDEBAR(false),
+    /**
+     * The F3+B entity hitbox outline.
+     *
+     * <p>Purely a debug overlay, but it is the one thing that survives every other channel: the
+     * body, the name and the shadow can all be gone while a white box still walks around and
+     * gives the position away. Cancelling it costs nothing when the overlay is off.</p>
+     *
+     * <p>Answers to {@code MODEL} as well, so an existing entry keeps working without anyone
+     * having to know this switch exists.</p>
+     */
+    HITBOX(true);
 
     private final boolean defaultEnabled;
 

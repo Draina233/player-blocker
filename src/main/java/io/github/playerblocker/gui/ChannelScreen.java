@@ -93,6 +93,7 @@ public class ChannelScreen extends Screen {
             case OUTLINE -> "描边/影子";
             case SYSTEM -> "系统消息";
             case SIDEBAR -> "侧边栏";
+            case HITBOX -> "碰撞箱(F3+B)";
         };
         return Component.literal((entry.enabled(target) ? "✔ " : "✘ ") + name);
     }
