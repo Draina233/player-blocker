@@ -1,0 +1,68 @@
+plugins {
+    // 26.x note: Minecraft ships unobfuscated, so there is no mappings dependency and no
+    // jar remapping. 'net.fabricmc.fabric-loom' is the no-remap variant of the plugin
+    // ('net.fabricmc.fabric-loom-remap' is the old 1.21.x behaviour).
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    // Soft-dependency jars are taken straight from the installed game instance. They are
+    // compile-time only: nothing is bundled, and the mixins that use them are skipped at
+    // runtime when the mod is absent (see PlayerBlockerMixinPlugin).
+    flatDir { dirs "libs" }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    // No remapping in 26.x, so plain 'implementation' replaces 'modImplementation'.
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    // Simple Voice Chat is the only optional mod whose types our mixin handler signature needs.
+    // Xaero and Jade are addressed by class name only, so they need no dependency at all.
+    compileOnly files("libs/voicechat.jar")
+
+    // Mod Menu: only the small ModMenuApi interface is referenced, and only from the
+    // "modmenu" entrypoint, which nothing loads when Mod Menu is absent.
+    compileOnly files("libs/modmenu.jar")
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "loader_version", project.loader_version
+    inputs.property "minecraft_version", project.minecraft_version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "loader_version": project.loader_version,
+                "minecraft_version": project.minecraft_version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = "UTF-8"
+    it.options.release = 25
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+    // Modrinth expects the license inside the artifact; META-INF keeps it out of the classpath root.
+    from("LICENSE") {
+        into "META-INF"
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "playerblocker",
+  "version": "${version}",
+  "name": "Player Blocker",
+  "description": "Client-side presentation filter: hide a specific player from rendering, tab list, chat, audio and third-party HUDs.",
+  "authors": [
+    "Draina233"
+  ],
+  "contributors": [],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/player-blocker",
+    "sources": "https://github.com/Draina233/player-blocker",
+    "issues": "https://github.com/Draina233/player-blocker/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/playerblocker/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "io.github.playerblocker.PlayerBlockerClient"
+    ],
+    "modmenu": [
+      "io.github.playerblocker.integration.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "playerblocker.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=25",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

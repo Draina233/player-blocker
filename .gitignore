@@ -1,0 +1,22 @@
+# Build output
+build/
+out/
+.gradle/
+run/
+
+# Soft-dependency jars are third-party binaries and must not be redistributed here
+libs/*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS / logs
+*.log
+build.log
+.DS_Store
+Thumbs.db

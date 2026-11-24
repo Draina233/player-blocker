@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.playerblocker.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "plugin": "io.github.playerblocker.mixin.PlayerBlockerMixinPlugin",
+  "client": [
+    "ChatComponentMixin",
+    "ChatListenerMixin",
+    "ClientPacketListenerMixin",
+    "ClientPacketListenerAccessor",
+    "ClientSuggestionProviderMixin",
+    "EntityRenderDispatcherMixin",
+    "EntityRenderDispatcherSubmitMixin",
+    "JadeRayTraceMixin",
+    "ParticleMixin",
+    "SidebarMixin",
+    "SoundMixin",
+    "VoiceChatMixin",
+    "XaeroRadarMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
